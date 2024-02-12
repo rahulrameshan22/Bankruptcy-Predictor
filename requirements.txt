@@ -1,5 +1,5 @@
 seaborn
 streamlit
-scikit learn
+sklearn
 pickle
 
