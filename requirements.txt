@@ -1,7 +1,7 @@
-import pandas
-import numpy
-import seaborn
-import streamlit
-import scikit learn
-import pickle
+pandas
+numpy
+seaborn
+streamlit
+scikit learn
+ pickle
 
