@@ -1,7 +1,5 @@
-pandas
-numpy
 seaborn
 streamlit
 scikit learn
- pickle
+pickle
 
