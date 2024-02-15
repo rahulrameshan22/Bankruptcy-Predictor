@@ -31,7 +31,6 @@ def main():
     cc = st.selectbox('Competitiveness', ('1','0.5','0'))
     ff = st.selectbox('Financial_flexibility', ('1','0.5','0'))
     cre = st.selectbox('Credibility',('1','0.5','0'))
-    
     if st.button('Predict'):
         result = predict(cc, ff, cre)
         if result==1:
