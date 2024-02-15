@@ -28,9 +28,9 @@ def main():
     """
     st.markdown(html_temp,unsafe_allow_html=True)
     st.markdown('A Web application for prediction of Bankruptcy')
-    cc = st.selectbox('Competitiveness', ('High','Medium','Low'))
-    ff = st.selectbox('Financial_flexibility', ('High','Medium','Low'))
-    cre = st.selectbox('Credibility',('High','Medium','Low'))
+    cc = st.selectbox('Competitiveness', ('1','0.5','0'))
+    ff = st.selectbox('Financial_flexibility', ('1','0.5','0'))
+    cre = st.selectbox('Credibility',('1','0.5','0'))
     
     if st.button('Predict'):
         result = predict(cc, ff, cre)
