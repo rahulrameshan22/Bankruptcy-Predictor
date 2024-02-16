@@ -12,7 +12,7 @@ from PIL import Image
 
 
 load = open("model1.pkl","rb")
-model = pickle.load(load)
+model1 = pickle.load(load)
 
 
 def predict(competitiveness,financial_flexibility,credibility):
