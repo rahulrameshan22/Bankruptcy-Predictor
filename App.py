@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[3]:
 
 
 import numpy as np 
@@ -16,7 +16,7 @@ model1 = pickle.load(load)
 
 
 def predict(competitiveness,financial_flexibility,credibility):
-    prediction = model.predict([[competitiveness,financial_flexibility,credibility]])
+    prediction = model1.predict([[competitiveness,financial_flexibility,credibility]])
     return prediction
 
 def main():
