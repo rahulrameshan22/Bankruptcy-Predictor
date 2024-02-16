@@ -643,20 +643,22 @@ tree.plot_tree(model,
                filled = True);
 
 
-# In[97]:
+# # Pipeline Generation
+
+# In[154]:
 
 
 categ
 
 
-# In[99]:
+# In[155]:
 
 
 df_new=categ.drop(['industrial_risk',' management_risk',' operating_risk'] , axis=1)
 df_new
 
 
-# In[136]:
+# In[156]:
 
 
 from sklearn.compose import ColumnTransformer
@@ -667,42 +669,42 @@ transformer = ColumnTransformer(transformers=[
 ], remainder='passthrough')
 
 
-# In[137]:
+# In[157]:
 
 
-model1 = Pipeline(steps=[('transformer', transformer),('model1',DecisionTreeClassifier())])
+model = Pipeline(steps=[('transformer', transformer),('model',DecisionTreeClassifier(criterion='entropy',max_depth=3))])
 
 
-# In[138]:
+# In[158]:
 
 
 x_train,x_test,y_train,y_test = train_test_split(df_new, df1[' class'], test_size=0.2,random_state=1)
 
 
-# In[139]:
+# In[159]:
 
 
-model1.fit(x_train,y_train)
+model.fit(x_train,y_train)
 
 
-# In[140]:
+# In[160]:
 
 
-y_pred = model1.predict(x_test)
+y_pred = model.predict(x_test)
 
 
-# In[141]:
+# In[161]:
 
 
 y_pred
 
 
-# In[143]:
+# In[162]:
 
 
 import pickle
 
-pickle.dump(model1, open('model1.pkl','wb'))
+pickle.dump(model, open('model.pkl','wb'))
 
 
 # In[ ]:

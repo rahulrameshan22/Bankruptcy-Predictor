@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[1]:
+# In[4]:
 
 
 import numpy as np 
@@ -11,12 +11,12 @@ import streamlit as st
 from PIL import Image
 
 
-load = open("model1.pkl","rb")
-model1 = pickle.load(load)
+load = open("model.pkl","rb")
+model = pickle.load(load)
 
 
 def predict(competitiveness,financial_flexibility,credibility):
-    prediction = model1.predict([[competitiveness,financial_flexibility,credibility]])
+    prediction = model.predict([[competitiveness,financial_flexibility,credibility]])
     return prediction
 
 def main():
