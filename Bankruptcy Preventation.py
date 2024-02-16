@@ -656,7 +656,7 @@ df_new=categ.drop(['industrial_risk',' management_risk',' operating_risk'] , axi
 df_new
 
 
-# In[105]:
+# In[118]:
 
 
 from sklearn.compose import ColumnTransformer
@@ -667,36 +667,36 @@ transformer = ColumnTransformer(transformers=[
 ], remainder='passthrough')
 
 
-# In[108]:
+# In[119]:
 
 
-model = Pipeline(steps=[('transformer', transformer),('model',DecisionTreeClassifier())])
+model1 = Pipeline(steps=[('transformer', transformer),('model1',DecisionTreeClassifier())])
 
 
-# In[110]:
+# In[120]:
 
 
-model.fit(x_train,y_train)
+model1.fit(x_train,y_train)
 
 
-# In[111]:
+# In[121]:
 
 
-y_pred = model.predict(x_test)
+y_pred = model1.predict(x_test)
 
 
-# In[112]:
+# In[122]:
 
 
 y_pred
 
 
-# In[115]:
+# In[123]:
 
 
 import pickle
 
-pickle.dump(model, open('model.pkl','wb'))
+pickle.dump(model, open('model1.pkl','wb'))
 
 
 # In[ ]:

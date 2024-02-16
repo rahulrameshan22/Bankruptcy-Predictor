@@ -1,7 +1,7 @@
 #!/usr/bin/env python
 # coding: utf-8
 
-# In[7]:
+# In[10]:
 
 
 import numpy as np 
@@ -11,7 +11,7 @@ import streamlit as st
 from PIL import Image
 
 
-load = open("model.pkl","rb")
+load = open("model1.pkl","rb")
 model = pickle.load(load)
 
 
