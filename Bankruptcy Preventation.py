@@ -673,25 +673,31 @@ transformer = ColumnTransformer(transformers=[
 model1 = Pipeline(steps=[('transformer', transformer),('model1',DecisionTreeClassifier())])
 
 
-# In[120]:
+# In[128]:
+
+
+x_train,x_test,y_train,y_test = train_test_split(df_new, df1[' class'], test_size=0.2,random_state=1)
+
+
+# In[129]:
 
 
 model1.fit(x_train,y_train)
 
 
-# In[121]:
+# In[130]:
 
 
 y_pred = model1.predict(x_test)
 
 
-# In[122]:
+# In[131]:
 
 
 y_pred
 
 
-# In[123]:
+# In[134]:
 
 
 import pickle
