@@ -35,6 +35,7 @@ def main():
         result = predict(cc, ff, cre)
         if result==1:
                   st.success('The company will not go bankrupt'.format(result))
+            st.ballons()
         else:
             st.success('The company will go bankrupt'.format(result))
         
