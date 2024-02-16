@@ -597,14 +597,14 @@ print('Test set score     : {:.2f}%'.format(MNB.score(x_test, y_test)*100))
 
 # # After verifying all the scores of various algorithms we select Decision Tree algorithm to build the model
 
-# In[74]:
+# In[89]:
 
 
 model= DecisionTreeClassifier(criterion='entropy',max_depth=3)
 model.fit(x_train,y_train)
 
 
-# In[75]:
+# In[90]:
 
 
 #Predicting on test data
@@ -612,31 +612,91 @@ preds = model.predict(x_test) # predicting on test data set
 pd.Series(preds).value_counts() #getting the count of each category
 
 
-# In[76]:
+# In[91]:
+
+
+model.score(x_train,y_train) #Train Score
+
+
+# In[92]:
+
+
+model.score(x_test,preds) #Testing Score
+
+
+# In[96]:
+
+
+from sklearn.metrics import classification_report
+print(classification_report(y_test,preds))
+
+
+# In[95]:
 
 
 fn=[' financial_flexibility', ' credibility', ' competitiveness' ]
 cn=['bankruptcy','non-bankruptcy'] 
-fig, axes = plt.subplots(nrows = 1,ncols = 1,figsize = (4,4), dpi=300)
+fig, axes = plt.subplots(nrows = 1,ncols = 1,figsize = (5,5), dpi=300)
 tree.plot_tree(model,
                feature_names = fn, 
                class_names=cn,
                filled = True);
 
 
-# In[82]:
+# In[97]:
+
+
+categ
+
+
+# In[99]:
+
+
+df_new=categ.drop(['industrial_risk',' management_risk',' operating_risk'] , axis=1)
+df_new
+
+
+# In[105]:
+
+
+from sklearn.compose import ColumnTransformer
+from sklearn.preprocessing import OneHotEncoder, OrdinalEncoder
+from sklearn.pipeline import Pipeline, make_pipeline
+transformer = ColumnTransformer(transformers=[
+    ('tnf1', OneHotEncoder(sparse=False, handle_unknown='ignore'),[0,1,2]),
+], remainder='passthrough')
+
+
+# In[108]:
+
+
+model = Pipeline(steps=[('transformer', transformer),('model',DecisionTreeClassifier())])
+
+
+# In[110]:
+
+
+model.fit(x_train,y_train)
+
+
+# In[111]:
+
+
+y_pred = model.predict(x_test)
+
+
+# In[112]:
+
+
+y_pred
+
+
+# In[115]:
 
 
 import pickle
-pickle_out = open ("model.pkl","wb")
-pickle.dump(model,pickle_out)
-pickle_out.close()
 
-
-# In[ ]:
-
-
-
+pickle.dump(model, open('model.pkl','wb'))
 
 
 # In[ ]:
